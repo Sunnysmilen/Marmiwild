@@ -1,13 +1,13 @@
 type foodItem1 = {
-    foodItem: {
-      id: number;
-      itemName: string;
-      description: string;
-      foodImage: string;
-      price: number;
-      isFavorite?: boolean;
-    };
-  
+  foodItem: {
+    id: number;
+    itemName: string;
+    description: string;
+    foodImage: string;
+    price: number;
+    isFavorite?: boolean;
+  };
+};
 
 function menuItem({ foodItem }: foodItem1) {
   return (
