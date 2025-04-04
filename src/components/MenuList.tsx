@@ -1,16 +1,7 @@
-import MenuItem from "./MenuItem";
+function MenuList() {
+  console.log();
 
-type foodItemsList = {
-  setFoodItem: (name: string) => void;
-  foodItemsList: foodItemsList[];
-};
-
-function MenuList({ foodItemsList }) {
-  return (
-    <>
-      <MenuItem foodItem={foodItemsList} />
-    </>
-  );
+  return <></>;
 }
 
 export default MenuList;

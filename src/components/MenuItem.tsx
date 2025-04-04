@@ -1,17 +1,25 @@
-type foodItem1 = {
-    foodItem: {
-      id: number;
-      itemName: string;
-      description: string;
-      foodImage: string;
-      price: number;
-      isFavorite?: boolean;
-    };
-  
+import { useState } from "react";
 
-function menuItem({ foodItem }: foodItem1) {
+type foodItem1 = {
+  foodItem: {
+    id: number;
+    itemName: string;
+    description: string;
+    foodImage: string;
+    price: number;
+    isFavorite?: boolean;
+  };
+};
+
+function MenuItem({ foodItem }: foodItem1) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggle = () => {
+    setIsFavorite(!isFavorite);
+  };
+
   return (
-    <section>
+    <section className="itemContainer">
       <figure>
         <img src={foodItem.foodImage} alt={foodItem.itemName} />
         <figcaption>
@@ -19,9 +27,15 @@ function menuItem({ foodItem }: foodItem1) {
           <p>{foodItem.description}</p>
         </figcaption>
       </figure>
-      <aside>{foodItem.price} EUR</aside>
-      <button type="button">{foodItem.isFavorite}</button>
+      <aside>{foodItem.price}EUR</aside>
+      <button
+        onClick={toggle}
+        className={"toggle--button " + (isFavorite ? "toggle--close" : "")}
+      >
+        {isFavorite ? "❤️" : "🩶"}
+      </button>
     </section>
   );
 }
-export default menuItem;
+
+export default MenuItem;

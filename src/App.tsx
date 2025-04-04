@@ -1,7 +1,7 @@
 import "./App.css";
-import MenuList from "./components/menuList";
+import MenuItem from "./components/MenuItem";
 
-const foodItemsList = [
+const foodItems = [
   {
     id: 1,
     itemName: "Caesar's Salad",
@@ -41,13 +41,18 @@ const foodItemsList = [
 ];
 
 function App() {
-  // const [foodItem, setFoodItem] = useState("Caesar's Salad");
-
+  // const liked;
   return (
     <main>
       <h1>MarmiWild</h1>
-      {/* <MenuList setFoodItemsList={setFoodItem} foodItemsList={foodItemsList}> */}
-      <MenuList foodItemsList={foodItemsList} />
+      <ul>
+        {foodItems.map((foodItems) => (
+          <li key={foodItems.id}>
+            <MenuItem foodItem={foodItems} />
+          </li>
+        ))}
+      </ul>
+      {/* <MenuList foodItems={foodItems} /> */}
     </main>
   );
 }
